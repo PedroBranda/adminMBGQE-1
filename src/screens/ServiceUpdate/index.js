@@ -22,9 +22,9 @@ import {
     DeleteButton,
 } from './styles';
 
-import BackIcon from '../../assets/back.svg';
-import EditIcon from '../../assets/edit.svg';
-import DeleteIcon from '../../assets/delete.svg';
+import BackIcon from '../../assets/Images/back.svg';
+import EditIcon from '../../assets/Images/edit.svg';
+import DeleteIcon from '../../assets/Images/delete.svg';
 
 import Api from '../../Api';
 import { Alert } from 'react-native';

@@ -12,7 +12,12 @@ import cep from 'cep-promise';
 
 import {
     Container,
+
+    HeaderArea,
+    HeaderTitle,
+
     Scroller,
+    
     InputAreaAddress,
     InputArea,
     InputAreaInfo,
@@ -21,7 +26,7 @@ import {
     CustomButtonText
 } from './styles';
 
-import PhoneIcon from '../../assets/phone.svg';
+import PhoneIcon from '../../assets/Images/phone.svg';
 
 import { UserContext } from '../../context/UserContext';
 
@@ -107,6 +112,9 @@ export default () => {
 
     return(
         <Container>
+            <HeaderArea>
+                <HeaderTitle>Cadastro Quadra</HeaderTitle>
+            </HeaderArea>
             <Scroller>
                 <InputArea>
                     <InputText

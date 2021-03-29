@@ -15,10 +15,10 @@ import {
 
 } from './styles';
 
-import FootLogo from '../../assets/football.svg';
+import FootLogo from '../../assets/Images/football.svg';
 import InputText from '../../components/InputText';
-import EmailIcon from '../../assets/email.svg';
-import LockIcon from '../../assets/lock.svg';
+import EmailIcon from '../../assets/Images/email.svg';
+import LockIcon from '../../assets/Images/lock.svg';
 
 import Api from '../../Api';
 
@@ -67,6 +67,7 @@ export default () => {
                     placeholder = "Digite seu e-mail"
                     value = { emailField }
                     onChangeText = {t => setEmailField(t)}
+                    error = { "Este campo é obrigatório!" }
                 />
 
                 <InputText
@@ -75,6 +76,7 @@ export default () => {
                     value = { passwordField }
                     onChangeText = { t => setPasswordField(t) }
                     password = { true }
+                    error = { "Este campo é obrigatório!" }
                 />
 
                 <CustomButton onPress = { handleSignInClick }>

@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import { useNavigation } from '@react-navigation/native';
 
-import ExpandIcon from '../assets/expand.svg';
+import ExpandIcon from '../assets/Images/expand.svg';
 
 export default ({ show, setShow }) => {
 

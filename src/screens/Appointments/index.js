@@ -79,7 +79,7 @@ export default () => {
     const handleCancelAppointments = async (listAppointments) => {
         await Api.cancelAppointments(user.idCourt, listAppointments);
         getListAppointments();
-        Alert.alert("Agendamento cancelado!");
+        Alert.alert("Agendamento Cancelado!");
     }
 
     return(

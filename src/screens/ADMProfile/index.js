@@ -23,8 +23,8 @@ import {
     CustomButtonText
 } from './styles';
 
-import AccountIcon from '../../assets/account.svg';
-import MenuIcon from '../../assets/menu.svg';
+import AccountIcon from '../../assets/Images/account.svg';
+import MenuIcon from '../../assets/Images/menu.svg';
 import ADMMenuModal from '../../components/ADMMenuModal';
 
 import Api from '../../Api';

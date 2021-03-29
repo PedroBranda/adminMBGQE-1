@@ -15,8 +15,8 @@ import {
     CustomButtonText
 } from './styles'
 
-import BackIcon from '../../assets/back.svg';
-import PhoneIcon from '../../assets/phone.svg';
+import BackIcon from '../../assets/Images/back.svg';
+import PhoneIcon from '../../assets/Images/phone.svg';
 
 import InputNumber from '../../components/InputNumber';
 

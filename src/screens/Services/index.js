@@ -21,7 +21,7 @@ import { UserContext } from '../../context/UserContext';
 
 import Api from '../../Api';
 
-import BackIcon from '../../assets/back.svg';
+import BackIcon from '../../assets/Images/back.svg';
 import { Alert } from 'react-native';
 
 export default () => {
@@ -33,15 +33,14 @@ export default () => {
     const [priceField, setPriceField] = useState('');
     const [infoQuadra, setInfoQuadra] = useState('');
 
-    const getInfoQuadra = async () => {
-        let result = await Api.LoadSportCourt(user.idCourt);
-        if(result.exists)
-        {
-            setInfoQuadra(result.data());
-        }
-    }
-
     useEffect(() => {
+        const getInfoQuadra = async () => {
+            let result = await Api.LoadSportCourt(user.idCourt);
+            if(result.exists)
+            {
+                setInfoQuadra(result.data());
+            }
+        }
         getInfoQuadra();
     }, []);
 
@@ -52,7 +51,7 @@ export default () => {
     const handleRegisterClick = async () => {
         const priceNumber = Number(priceField);
 
-        if(typeField != '', priceNumber > 0)
+        if(typeField != '' && priceNumber > 0)
         {
             let result = await Api.setService(user.idCourt, typeField, priceNumber);
             if(result)
@@ -60,10 +59,14 @@ export default () => {
                 Alert.alert("Serviço da quadra registrado com sucesso!");
                 navigation.goBack();
             }
+            else
+            {
+                Alert.alert("Esse serviço já está registrado!");
+            }
         }
         else
         {
-            Alert.alert("Preencha os dados corretamente!");
+            Alert.alert(`Os dados estão preenchidos incorretamente!`);
         }
     }
 

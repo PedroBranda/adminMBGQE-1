@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
+import Colors from '../../assets/Themes/Colors';
+
 export const Container = styled.SafeAreaView`
     flex: 1;   
-    background-color: #0B6623;
+    background-color: ${ Colors.primary };
 `;
 
 export const BackButton = styled.TouchableOpacity`
@@ -129,7 +131,7 @@ export const ButtonArea = styled.View`
 `;
 
 export const FinishButton = styled.TouchableOpacity`
-    background-color: #58C878;
+    background-color: ${ Colors.secundary };
     height: 50px;
     width: 165px;
     justify-content: center;

@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
+import Colors from '../../assets/Themes/Colors';
+
 export const Container = styled.SafeAreaView`
     flex: 1;
-    background-color: #0B6623;
+    background-color: ${ Colors.primary };
 `
 export const HeaderArea = styled.View`
     margin-top: 33px;
@@ -42,7 +44,7 @@ export const EmptyTitle = styled.Text`
 
 export const Scroller = styled.ScrollView`
     flex: 1;
-    background-color: #0B6623;
+    background-color: ${ Colors.primary };
 `;
 
 export const ListArea = styled.View`
@@ -97,7 +99,7 @@ export const InfoDateArea = styled.View`
 export const InfoDayArea = styled.View`
     align-items: center;
     justify-content: center;
-    background-color: #58C878;
+    background-color: ${ Colors.secundary };
     width: 120px;
     height: 40px;
     border-radius: 10px;
@@ -106,7 +108,7 @@ export const InfoDayArea = styled.View`
 export const InfoHourArea = styled.View`
     align-items: center;
     justify-content: center;
-    background-color: #58C878;
+    background-color: ${ Colors.secundary };
     width: 80px;
     height: 40px;
     border-radius: 10px;
@@ -119,7 +121,7 @@ export const InfoDateText = styled.Text`
 `;
 
 export const CancelButton = styled.TouchableOpacity`
-    background-color: #58C878;
+    background-color: ${ Colors.secundary };
     height: 40px;
     width: 120px;
     justify-content: center;

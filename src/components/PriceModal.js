@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 
-import ExpandIcon from '../assets/expand.svg';
+import ExpandIcon from '../assets/Images/expand.svg';
 
 import InputNumber from './InputNumber';
 
 import Api from '../Api';
 import { Alert } from 'react-native';
+
+import Colors from '../assets/Themes/Colors';
 
 export default ({ show, setShow, quadraInfo, service }) => {
 
@@ -69,7 +71,7 @@ const Modal = styled.Modal``;
 
 const ModalArea = styled.View`
     flex: 1;
-    background-color: #0B6623;
+    background-color: ${ Colors.primary };
     align-items: center;
     justify-content: center;
 `;
@@ -88,7 +90,7 @@ const InputArea = styled.View`
 
 const CustomButton = styled.TouchableOpacity`
     height: 60px;
-    background-color: #58C878;
+    background-color: ${ Colors.secundary };
     border-radius: 30px;
     justify-content: center;
     align-items: center;

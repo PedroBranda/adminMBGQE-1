@@ -3,8 +3,10 @@ import styled from 'styled-components/native';
 
 import { useNavigation } from '@react-navigation/native';
 
-import ExpandIcon from '../assets/expand.svg';
+import ExpandIcon from '../assets/Images/expand.svg';
 import PasswordModal from './PasswordModal';
+
+import Colors from '../assets/Themes/Colors';
 
 export default ({ show, setShow }) => {
 
@@ -66,8 +68,9 @@ const Modal = styled.Modal``;
 
 const ModalArea = styled.View`
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.75);
-    align-items: flex-end;
+    background-color: #000;
+    align-items: center;
+    justify-content: center;
 `;
 
 const CloseButton = styled.TouchableOpacity`
@@ -80,18 +83,18 @@ const CloseButton = styled.TouchableOpacity`
 `;
 
 const CustomButton = styled.TouchableOpacity`
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: ${Colors.secundary};
     height: 40px;
     width: 70%;
-    border-radius: 10px;
+    border-radius: 30px;
     margin-left: 10px;
     margin-top: 20px;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 `;
 
 const CustomButtonText = styled.Text`
-    color: #000;
+    color: #FFF;
     font-size: 16px;
     font-weight: bold;
     padding: 5px;

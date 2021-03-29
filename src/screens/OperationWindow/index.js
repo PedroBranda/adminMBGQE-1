@@ -36,12 +36,14 @@ import {
     FinishButtonText
 } from './styles';
 
-import BackIcon from '../../assets/back.svg';
-import NavPrevIcon from '../../assets/nav_prev.svg';
-import NavNextIcon from '../../assets/nav_next.svg';
+import BackIcon from '../../assets/Images/back.svg';
+import NavPrevIcon from '../../assets/Images/nav_prev.svg';
+import NavNextIcon from '../../assets/Images/nav_next.svg';
 
 import Api from '../../Api';
 import { Alert } from 'react-native';
+
+import Colors from '../../assets/Themes/Colors';
 
 const months = [
     'Janeiro',
@@ -282,7 +284,7 @@ export default () => {
                                 onPress = { () => item.status ? setSelectedDay(item.number) : null }
                                 style = {{ 
                                     opacity: item.status ? 1 : 0.5,
-                                    backgroundColor: item.number === selectedDay ? '#0B6623' : '#FFF'
+                                    backgroundColor: item.number === selectedDay ? Colors.primary : '#FFF'
                                 }}
                             >
                                 <DateItemWeekDay

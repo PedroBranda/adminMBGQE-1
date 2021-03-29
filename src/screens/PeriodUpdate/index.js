@@ -30,12 +30,14 @@ import {
     DeleteButtonText
 } from './styles';
 
-import BackIcon from '../../assets/back.svg';
-import NavPrevIcon from '../../assets/nav_prev.svg';
-import NavNextIcon from '../../assets/nav_next.svg';
+import BackIcon from '../../assets/Images/back.svg';
+import NavPrevIcon from '../../assets/Images/nav_prev.svg';
+import NavNextIcon from '../../assets/Images/nav_next.svg';
 
 import Api from '../../Api';
 import { Alert } from 'react-native';
+
+import Colors from '../../assets/Themes/Colors';
 
 const months = [
     'Janeiro',
@@ -76,7 +78,7 @@ export default () => {
     const [listHours, setListHours] = useState([]);
 
     useEffect(() => {
-        let unsub = Api.onPeriod(user.idCourt, setListPeriod);
+        let unsub = Api.onPeriodUpdate(user.idCourt, setListPeriod);
         return unsub;
     }, []);
 
@@ -216,7 +218,7 @@ export default () => {
                                 onPress = { () => item.status ? setSelectedDay(item.number) : null }
                                 style = {{
                                     opacity: item.status ? 1 : 0.5,
-                                    backgroundColor: item.number === selectedDay ? '#0B6623' : '#FFF'
+                                    backgroundColor: item.number === selectedDay ? Colors.primary : '#FFF'
                                 }}
                             >
                                 <DateItemWeekDay
@@ -246,16 +248,21 @@ export default () => {
                             listHours.map((item, key) => (
                                 <TimeItem
                                     key = { key }
-                                    onPress = { () => setSelectedHour(item.hora) }
+                                    onPress = { () => item.disponivel ? setSelectedHour(item.hora) : null }
                                     style = {{
-                                        backgroundColor: item.hora === selectedHour ? '#0B6623' : '#FFF',
+                                        backgroundColor: item.hora === selectedHour ? Colors.primary : '#FFF',
                                     }}
                                 >
-                                    <TimeItemText
-                                        style = {{
-                                            color: item.hora === selectedHour ? '#FFF' : '#000'
-                                        }}
-                                    >{ item.hora }</TimeItemText>
+                                    {
+                                        item.disponivel ?
+                                            <TimeItemText
+                                                style = {{
+                                                        color: item.hora === selectedHour ? '#FFF' : '#000'
+                                                }}
+                                            >{ item.hora }</TimeItemText>
+                                        :
+                                        null
+                                    }                                    
                                 </TimeItem>
                             ))
                         }

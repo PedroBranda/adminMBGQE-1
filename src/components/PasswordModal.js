@@ -6,8 +6,8 @@ import { UserContext } from '../context/UserContext';
 
 import Api from '../Api';
 
-import ExpandIcon from '../assets/expand.svg';
-import LockIcon from '../assets/lock.svg';
+import ExpandIcon from '../assets/Images/expand.svg';
+import LockIcon from '../assets/Images/lock.svg';
 
 export default ({ show, setShow }) => {
 

@@ -12,6 +12,9 @@ import moment from 'moment';
 
 import { 
     Container,
+    HeaderArea,
+    HeaderTitle,
+    
     Scroller,
 
     InputArea,
@@ -24,11 +27,11 @@ import {
     CustomButtonText
 } from './styles';
 
-import CalenderIcon from '../../assets/calender.svg';
+import CalenderIcon from '../../assets/Images/calender.svg';
 
 import { UserContext } from '../../context/UserContext';
 import Api from '../../Api';
-import { cpfMask, cepMask } from '../../Mask';
+import { cepMask } from '../../Mask';
 import cep from 'cep-promise';
 import { Alert } from 'react-native';
 
@@ -119,6 +122,9 @@ export default () => {
 
     return (
         <Container>
+            <HeaderArea>
+                <HeaderTitle>Cadastro</HeaderTitle>
+            </HeaderArea>
             <Scroller>
                 <InputArea>
                     <DateArea onPress = { showPicker } >
@@ -145,12 +151,14 @@ export default () => {
                         onChangeText = { t => setCPFField(t) }
                         maxLength = { 11 }
                         minLength = { 11 }
+                        error = { "Este campo é obrigatório!" }
                     />
 
                     <InputNumber
                         placeholder = "CNPJ"
                         value = { cnpjField }
                         onChangeText = { t => setCNPJField(t) }
+                        error = { "Este campo é obrigatório!" }
                     />
                                 
                     <InputCep
@@ -160,6 +168,7 @@ export default () => {
                         onEndEditing = { () => fetchCep() }
                         maxLength = { 9 }
                         minLength = { 9 }
+                        error = { "Este campo é obrigatório!" }
                     />
 
                     <InputAreaInfo>
@@ -167,12 +176,14 @@ export default () => {
                             placeholder = { streetField != '' ? streetField : "Rua" }
                             value = { streetField }
                             onChangeText = { t => setStreetField(t) }
+                            error = { "Este campo é obrigatório!" }
                         />
 
                         <InputNumberStreet
                             placeholder = "Nº"
                             value = { numberField }
                             onChangeText = { t => setNumberField(t) }
+                            error = { "Este campo é obrigatório!" }
                         />
                     </InputAreaInfo>
 
@@ -180,6 +191,7 @@ export default () => {
                         placeholder = { neighborhoodField != '' ? neighborhoodField : "Bairro" }
                         value = { neighborhoodField }
                         onChangeText = { t => setNeighborhoodField(t) }
+                        error = { "Este campo é obrigatório!" }
                     />   
 
                     <InputAreaInfo>
@@ -187,12 +199,14 @@ export default () => {
                             placeholder = { cityField != '' ? cityField : "Cidade" }
                             value = { cityField }
                             onChangeText = { t => setCityField(t) }
+                            error = { "Este campo é obrigatório!" }
                         />
 
                         <InputUF
                             placeholder = { stateField != '' ? stateField : "Estado" }
                             value = { stateField }
                             onChangeText = { t => setStateField(t) }
+                            error = { "Este campo é obrigatório!" }
                         />
                     </InputAreaInfo>
                     <CustomButton onPress = { handleSignUpClick } >

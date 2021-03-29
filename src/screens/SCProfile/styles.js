@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import Colors from '../../assets/Themes/Colors';
 
 export const Container = styled.SafeAreaView`
-    background-color: #0B6623;
+    background-color: ${ Colors.primary };
     flex: 1;
 `;
 
@@ -98,7 +99,7 @@ export const Photo = styled.Image`
 
 export const CustomButton = styled.TouchableOpacity`
     height: 50px;
-    background-color: #58C878;
+    background-color: ${ Colors.secundary };
     margin-top: 35px;
     margin-left: 35px;
     margin-right: 35px;

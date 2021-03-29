@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import ImagePicker from 'react-native-image-crop-picker';
 
-import ExpandIcon from '../assets/expand.svg';
-import PhotoIcon from '../assets/photo.svg';
+import ExpandIcon from '../assets/Images/expand.svg';
+import PhotoIcon from '../assets/Images/photo.svg';
 
 import Api from '../Api';
 import { Alert } from 'react-native';

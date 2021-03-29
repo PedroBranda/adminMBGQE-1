@@ -26,9 +26,9 @@ import {
 
 import { UserContext } from '../../context/UserContext';
 
-import MenuIcon from '../../assets/menu.svg';
-import PhotoIcon from '../../assets/photo.svg';
-import AccountIcon from '../../assets/account.svg';
+import MenuIcon from '../../assets/Images/menu.svg';
+import PhotoIcon from '../../assets/Images/photo.svg';
+import AccountIcon from '../../assets/Images/account.svg';
 import SCMenuModal from '../../components/SCMenuModal';
 
 import Api from '../../Api';

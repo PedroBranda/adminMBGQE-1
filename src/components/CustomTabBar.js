@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import HomeIcon from '../assets/home.svg';
-import TodayIcon from '../assets/today.svg';
-import AccountIcon from '../assets/account.svg';
-import WindowIcon from '../assets/window_icon.svg';
+import HomeIcon from '../assets/Images/home.svg';
+import TodayIcon from '../assets/Images/today.svg';
+import AccountIcon from '../assets/Images/account.svg';
+import WindowIcon from '../assets/Images/window_icon.svg';
+
+import Colors from '../assets/Themes/Colors';
 
 const TabArea = styled.View`
     height: 60px;
-    background-color: #000;
+    background-color: ${Colors.secundary};
     flex-direction: row;
 `;
 

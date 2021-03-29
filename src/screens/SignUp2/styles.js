@@ -1,13 +1,26 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import Colors from '../../assets/Themes/Colors';
 
 export const Container = styled.SafeAreaView`
-    background-color: #0B6623;
+    background-color: ${ Colors.primary };
     flex: 1;
 `;
 
+export const HeaderArea = styled.View`
+    margin-top: 33px;
+    margin-left: 50px;
+    width: 150px;
+`;
+
+export const HeaderTitle = styled.Text`
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFF;
+`;
+
 export const Scroller = styled.ScrollView`
-    background-color: #0B6623;
+    background-color: ${ Colors.primary };
     flex: 1;
 `;
 
@@ -30,7 +43,7 @@ export const DateArea = styled.TouchableOpacity`
 export const DateText = styled.Text`
     flex: 1;
     font-size: 16px;
-    color: #0B6623;
+    color: ${ Colors.primary };
     margin-left: 10px;
 `;
 
@@ -41,7 +54,7 @@ export const InputAreaInfo = styled.View`
 
 export const CustomButton = styled.TouchableOpacity`
     height: 60px;
-    background-color: #58C878
+    background-color: ${ Colors.secundary };
     border-radius: 30px;
     justify-content: center;
     align-items: center;

@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
+import Colors from '../assets/Themes/Colors';
+
+const Area = styled.View`
+    margin-bottom: 10px;
+`;
 
 const InputArea = styled.View`
     width: 30%;
@@ -9,34 +14,50 @@ const InputArea = styled.View`
     border-radius: 30px;
     padding-left: 15px;
     align-items: center;
-    margin-bottom: 15px;
 `;
 
 const Input = styled.TextInput`
     flex: 1;
     font-size: 16px;
-    color: #0B6623;
+    color: ${ Colors.primary };
     margin-left: 10px;
 `;
 
-export default ({ IconSvg, placeholder, value, onChangeText }) => {
+const TextError = styled.Text`
+    color: ${ Colors.textError };
+    font-size: 14px;
+`;
+
+export default ({ IconSvg, placeholder, value, onChangeText, error }) => {
+
+    const [focused, setFocused] = useState(false);
+
     return(
-        <InputArea>
+        <Area>
+            <InputArea>
+                {
+                    IconSvg != null 
+                    ? 
+                        <IconSvg width = "24" height = "24" fill = { Colors.primary } />
+                    :
+                        null
+                }
+                
+                <Input
+                    placeholder = { placeholder }
+                    placeholderTextColor = { Colors.primary }
+                    value = { value }
+                    onChangeText = { onChangeText }
+                    keyboardType = 'numeric'
+                    onFocus = { () => {
+                        setFocused(true);
+                    }}
+                />
+            </InputArea>
             {
-                IconSvg != null 
-                ? 
-                    <IconSvg width = "24" height = "24" fill = "#0B6623" />
-                :
-                    null
+                focused &&
+                <TextError>{ error }</TextError>
             }
-            
-            <Input
-                placeholder = { placeholder }
-                placeholderTextColor = "#0B6623"
-                value = { value }
-                onChangeText = { onChangeText }
-                keyboardType = 'numeric'
-            />
-        </InputArea>
+        </Area>        
     );
 }

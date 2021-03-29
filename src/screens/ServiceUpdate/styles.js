@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import Colors from '../../assets/Themes/Colors';
 
 export const Container = styled.SafeAreaView`
     flex: 1;
-    background-color: #0B6623;
+    background-color: ${ Colors.primary };
 `;
 
 export const BackButton = styled.TouchableOpacity`

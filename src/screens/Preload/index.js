@@ -10,7 +10,7 @@ import {
 
 } from './styles';
 
-import FootLogo from '../../assets/football.svg';
+import FootLogo from '../../assets/Images/football.svg';
 import Api from '../../Api';
 
 export default () => {

@@ -80,7 +80,7 @@ export default {
             name: nameQuadra,
             telefone: telefone,
             idDono: idDono,
-            stars: 0,
+            stars: "0",
             endereco: {
                 cep: cep,
                 rua: rua,
@@ -104,6 +104,15 @@ export default {
     },
 
     setService: async (idQuadra, tipo, preco) => {
+        let result = await db.collection('quadras').doc(idQuadra).get();
+        let typeReg = result.data().servico;
+        for(let i = 0; i < typeReg.length; i++)
+        {
+            if(tipo == typeReg[i].tipo)
+            {
+                return false;
+            }
+        }
         await db.collection('quadras').doc(idQuadra).update({
             servico: firestore.FieldValue.arrayUnion({
                 tipo: tipo, preco: preco
@@ -140,7 +149,19 @@ export default {
         return db.collection('quadras')
             .doc(idQuadra)
             .collection('periodo')
-            .orderBy('data', 'asc')
+            .onSnapshot((doc) => {
+                if(doc.docs)
+                {
+                    let docPeriod = doc.docs.map(period => period.data())
+                    setListPeriod(docPeriod);
+                }
+            });
+    },
+
+    onPeriodUpdate: (idQuadra, setListPeriod) => {
+        return db.collection('quadras')
+            .doc(idQuadra)
+            .collection('periodo')
             .onSnapshot((doc) => {
                 if(doc.docs)
                 {
@@ -163,6 +184,12 @@ export default {
     getAppointments: async (idQuadra) => {
         let list = [];
         let date = new Date();
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        month = month < 10 ? '0' + month : month;
+        day = day < 10 ? '0' + day : day;
+        let selDate =  `${day}/${month}/${year}`;
         let result = await db.collection('quadras').doc(idQuadra).get();
         if(result.exists)
         {
@@ -170,6 +197,7 @@ export default {
         } 
 
         await db.collection('agendamento')
+            .orderBy('hora', 'asc')
             .get().then(snapshot => {
                 snapshot.docs.map(doc => {
                 if(doc.exists)
@@ -177,7 +205,7 @@ export default {
                     let data = doc.data();
                     for (i in listAppointments)
                     {
-                        if(doc.id == listAppointments[i])
+                        if(doc.id == listAppointments[i] && data.data == selDate)
                         {
                             list.push({
                                 data: data.data,
@@ -247,7 +275,7 @@ export default {
             })
             transaction.update(periodoRef, {
                 horas: firestore.FieldValue.arrayRemove({
-                    'hora': infoAgendamento.hora, 'disponivel': true
+                    'hora': infoAgendamento.hora, 'disponivel': false
                 })
             });
         });

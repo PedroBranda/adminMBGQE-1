@@ -4,6 +4,8 @@ import { UserContext } from '../../context/UserContext';
 
 import { 
     Container,
+    HeaderArea,
+    HeaderTitle,
     Scroller,
     InputArea,
     CustomButton,
@@ -15,10 +17,10 @@ import {
 
 import InputText from '../../components/InputText';
 import InputNumber from '../../components/InputNumber';
-import EmailIcon from '../../assets/email.svg';
-import LockIcon from '../../assets/lock.svg';
-import PhoneIcon from '../../assets/phone.svg';
-import PersonIcon from '../../assets/person.svg';
+import EmailIcon from '../../assets/Images/email.svg';
+import LockIcon from '../../assets/Images/lock.svg';
+import PhoneIcon from '../../assets/Images/phone.svg';
+import PersonIcon from '../../assets/Images/person.svg';
 
 import { phoneMask } from '../../Mask';
 import Api from '../../Api';
@@ -31,6 +33,7 @@ export default () => {
     const [nameField, setNameField] = useState('');
     const [emailField, setEmailField] = useState('');
     const [passwordField, setPasswordField] = useState('');
+    const [passwordConfirm, setPasswordConfirm] = useState('');
     const [phoneField1, setPhoneField1] = useState('');
     const [phoneField2, setPhoneField2] = useState('');
 
@@ -39,13 +42,21 @@ export default () => {
     const handleNextClick = async () => {
         if(nameField != '' && emailField != '' && passwordField != '' && phoneField1 != '')
         {
-            if(passwordField.length < 6)
+            if(passwordField.length < 6 && passwordConfirm.length < 6)
             {
                 Alert.alert("A senha precisa ter no mínimo 6 caracteres");
             }
             else if(!regex.exec(passwordField))
             {
                 Alert.alert("A senha deve conter no mínimo 1 caratere em maiúsculo, 2 números e 1 catectere especial!");
+            }
+            else if(!regex.exec(passwordConfirm))
+            {
+                Alert.alert("A senha deve conter no mínimo 1 caratere em maiúsculo, 2 números e 1 catectere especial!");
+            }
+            else if(passwordConfirm != passwordField)
+            {
+                Alert.alert("As senhas não são iguais!");
             }
             else
             {
@@ -84,6 +95,9 @@ export default () => {
 
     return(
         <Container>
+            <HeaderArea>
+                <HeaderTitle>Cadastro</HeaderTitle>
+            </HeaderArea>
             <Scroller>
                 <InputArea>
                     <InputText
@@ -91,6 +105,7 @@ export default () => {
                         placeholder = "Digite seu nome"
                         value = { nameField }
                         onChangeText = { t => setNameField(t) }
+                        error = { "Este campo é obrigatório!" }
                     />
 
                     <InputText
@@ -98,6 +113,7 @@ export default () => {
                         placeholder = "Digite seu e-mail"
                         value = { emailField }
                         onChangeText = { t => setEmailField(t) }
+                        error = { "Este campo é obrigatório!" }
                     />
 
                     <InputText 
@@ -106,20 +122,31 @@ export default () => {
                         value = { passwordField }
                         onChangeText = { t => setPasswordField(t) }
                         password = { true }
+                        error = { "Este campo é obrigatório!" }
+                    />
+
+                    <InputText 
+                        IconSvg = { LockIcon }
+                        placeholder = "Confirmar senha"
+                        value = { passwordConfirm }
+                        onChangeText = { t => setPasswordConfirm(t) }
+                        password = { true }
+                        error = { "Este campo é obrigatório!" }
                     />
 
                     <InputNumber 
                         IconSvg = { PhoneIcon }
-                        placeholder = "(XX) 9XXXX-XXXX"
+                        placeholder = "Número do celular (1)"
                         value = { phoneMask(phoneField1) }
                         onChangeText = { t => setPhoneField1(t) }
                         maxLength = { 14 }
                         minLength = { 14 }
+                        error = { "Este campo é obrigatório!" }
                     />
 
                     <InputNumber 
                         IconSvg = { PhoneIcon }
-                        placeholder = "(XX) 9XXXX-XXXX (Opcional)"
+                        placeholder = "Número do celular (2)"
                         value = { phoneMask(phoneField2) }
                         onChangeText = { t => setPhoneField2(t) }
                         maxLength = { 14 }
