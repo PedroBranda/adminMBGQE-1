@@ -4,6 +4,7 @@ import { UserContext } from '../../context/UserContext';
 
 import { 
     Container,
+    BackButton,
     HeaderArea,
     HeaderTitle,
     Scroller,
@@ -15,6 +16,7 @@ import {
     SignMessageButtonTextBold
 } from './styles';
 
+import BackIcon from '../../assets/Images/back.svg';
 import InputText from '../../components/InputText';
 import InputNumber from '../../components/InputNumber';
 import EmailIcon from '../../assets/Images/email.svg';
@@ -93,10 +95,19 @@ export default () => {
         });
     }
 
+    const handleBackButtonClick = () => {
+        navigation.reset({
+            routes: [{name: 'SignIn'}]
+        });
+    }
+
     return(
         <Container>
+            <BackButton onPress = { handleBackButtonClick } >
+                <BackIcon width = "44" height = "44" fill = "#FFF" />
+            </BackButton>
             <HeaderArea>
-                <HeaderTitle>Cadastro</HeaderTitle>
+                <HeaderTitle> Cadastro</HeaderTitle>
             </HeaderArea>
             <Scroller>
                 <InputArea>
