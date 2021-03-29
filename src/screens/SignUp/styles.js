@@ -58,12 +58,3 @@ export const SignMessageButtonTextBold = styled.Text`
     font-weight: bold;
     margin-left: 5px;
 `;
-
-export const BackButton = styled.TouchableOpacity`
-    position: absolute;
-    left: 0;
-    top: 25px;
-    z-index: 0;
-    height: 44px;
-    width: 44px;
-`
